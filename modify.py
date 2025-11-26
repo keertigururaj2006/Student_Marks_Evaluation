@@ -1,11 +1,13 @@
-scores = input("Enter scores separated by space: ").split()
-scores = [float(x) for x in scores]
+import sys
 
-total = sum(scores)
-avg = total / len(scores)
+if len(sys.argv) < 2:
+    print("Usage: python scores_local.py <s1> <s2> <s3> ...")
+    sys.exit(1)
+
+scores = [float(x) for x in sys.argv[1:]]
 
 print("Scores:", scores)
-print("Sum:", total)
-print("Average:", avg)
+print("Sum:", sum(scores))
+print("Average:", sum(scores) / len(scores))
 print("Maximum:", max(scores))
 print("Minimum:", min(scores))
